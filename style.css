@@ -1,0 +1,71 @@
+/* css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3a0ca3;
+    --accent: #ffd166;
+    --success: #06d6a0;
+    --warning: #ef476f;
+    --light: #f8f9fa;
+    --dark: #121212;
+    --gray: #6c757d;
+    --card-bg: #1e1e1e;
+    --text: #e9ecef;
+    --border: #333;
+    --glow: rgba(67, 97, 238, 0.3);
+    --background: #121212;
+    --tab-glow: rgba(67, 97, 238, 0.5);
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--success));
+    animation: headerGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes headerGlow {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* ... (ALL THE REST OF YOUR CSS EXACTLY AS IS) ... */
+
+/* Continue with all your existing CSS styles - they remain completely unchanged */

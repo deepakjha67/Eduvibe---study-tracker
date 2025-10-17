@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduvibe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Eduvibe</h1>
+                <p class="tagline">Master your skills with 1-Day-1-Video challenge</p>
+            </div>
+            <div class="streak-header">
+                <i class="fas fa-fire fire-icon"></i>
+                <div class="streak-number" id="headerStreakCount">0</div>
+                <div class="streak-label">Day Streak</div>
+            </div>
+        </header>
+        
+        <!-- Enhanced Tab Navigation - DESKTOP -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="dashboard">
+                <div class="tab-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="tab-title">Dashboard</div>
+            </div>
+            <div class="nav-tab" data-tab="courses">
+                <div class="tab-icon"><i class="fas fa-play-circle"></i></div>
+                <div class="tab-title">Courses</div>
+            </div>
+            <div class="nav-tab" data-tab="goals">
+                <div class="tab-icon"><i class="fas fa-bullseye"></i></div>
+                <div class="tab-title">Today's Goals</div>
+            </div>
+            <div class="nav-tab" data-tab="achievements">
+                <div class="tab-icon"><i class="fas fa-trophy"></i></div>
+                <div class="tab-title">Achievements</div>
+            </div>
+            <div class="nav-tab" data-tab="focus">
+                <div class="tab-icon"><i class="fas fa-clock"></i></div>
+                <div class="tab-title">Focus Mode</div>
+            </div>
+            <div class="nav-tab" data-tab="settings">
+                <div class="tab-icon"><i class="fas fa-cog"></i></div>
+                <div class="tab-title">Settings</div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-tab active" data-tab="dashboard">
+                <div class="mobile-tab-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="mobile-tab-title">Dashboard</div>
+            </div>
+            <div class="mobile-nav-tab" data-tab="courses">
+                <div class="mobile-tab-icon"><i class="fas fa-play-circle"></i></div>
+                <div class="mobile-tab-title">Courses</div>
+            </div>
+            <div class="mobile-nav-tab" data-tab="goals">
+                <div class="mobile-tab-icon"><i class="fas fa-bullseye"></i></div>
+                <div class="mobile-tab-title">Today's Goals</div>
+            </div>
+            <div class="mobile-nav-tab" data-tab="achievements">
+                <div class="mobile-tab-icon"><i class="fas fa-trophy"></i></div>
+                <div class="mobile-tab-title">Achievements</div>
+            </div>
+            <div class="mobile-nav-tab" data-tab="focus">
+                <div class="mobile-tab-icon"><i class="fas fa-clock"></i></div>
+                <div class="mobile-tab-title">Focus Mode</div>
+            </div>
+            <div class="mobile-nav-tab" data-tab="settings">
+                <div class="mobile-tab-icon"><i class="fas fa-cog"></i></div>
+                <div class="mobile-tab-title">Settings</div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Content -->
+        <div class="nav-content active" id="dashboard-content">
+            <!-- Dashboard content remains exactly the same -->
+            <div class="streak-counter">
+                <i class="fas fa-fire fire-icon"></i>
+                <div class="streak-number" id="streakCount">0</div>
+                <div class="streak-label">Day Streak</div>
+            </div>
+            
+            <div class="app-container">
+                <div class="left-panel">
+                    <div class="card">
+                        <h2 class="card-title"><i class="fas fa-tasks"></i> Today's Goals</h2>
+                        <div class="today-goals" id="todayGoals"></div>
+                        <div class="goal-progress-bar">
+                            <div class="goal-progress" id="todayProgress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h2 class="card-title"><i class="fas fa-calendar-alt"></i> Learning Calendar</h2>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <h3 id="currentMonth">October 2025</h3>
+                            </div>
+                            <div class="calendar-grid" id="calendarDays"></div>
+                            <div class="study-details" id="studyDetails">
+                                <h4>Study Details</h4>
+                                <p>Complete videos to see your study history here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-panel">
+                    <div class="card">
+                        <h2 class="card-title"><i class="fas fa-chart-line"></i> Quick Stats</h2>
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <div class="stat-number" id="totalPlaylists">0</div>
+                                <div class="stat-label">Playlists</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="completedVideos">0</div>
+                                <div class="stat-label">Videos Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="todayGoalsCompleted">0/0</div>
+                                <div class="stat-label">Today's Goals</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- About Creator Section -->
+                    <div class="about-creator">
+                        <div class="creator-content">
+                            <h3 class="creator-title">Eduvibe</h3>
+                            <p class="creator-description">
+                                Track your learning progress and achieve your goals with our comprehensive study tracking tool.
+                            </p>
+                            <div class="creator-links">
+                                <a href="https://github.com/deepakjha67" target="_blank" class="creator-link">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/deepak-kumar-jha-390694281" target="_blank" class="creator-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                            <p class="creator-signature">Stay Consistent, Keep Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Courses Content -->
+        <div class="nav-content" id="courses-content">
+            <!-- Courses content remains exactly the same -->
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-play-circle"></i> My Courses & Playlists</h2>
+                
+                <div class="tabs-container" id="tabsContainer" data-active-tab="all">
+                    <div class="tab active" data-tab="all">All Playlists</div>
+                    <div class="tab" data-tab="in-progress">In Progress</div>
+                    <div class="tab" data-tab="completed">Completed</div>
+                </div>
+                
+                <div class="tab-content active" id="all-tab">
+                    <div id="playlistsContainer">
+                        <div class="create-first-playlist" id="createFirstPlaylist">
+                            <i class="fas fa-plus-circle"></i>
+                            <h3>Create Your First Playlist</h3>
+                            <p>Start your learning journey by creating a playlist of videos or topics you want to master.</p>
+                            <button class="btn-primary" id="createPlaylistBtn">
+                                <i class="fas fa-plus"></i> Create Playlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="in-progress-tab">
+                    <div id="inProgressContainer">
+                        <div class="empty-state">
+                            <i class="fas fa-spinner"></i>
+                            <h3>No Playlists in Progress</h3>
+                            <p>Start learning to see your in-progress playlists here</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="completed-tab">
+                    <div id="completedContainer">
+                        <div class="empty-state">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>No Completed Playlists</h3>
+                            <p>Complete your playlists to see them here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-chart-line"></i> Progress Overview</h2>
+                <div class="progress-container" id="progressContainer">
+                    <p style="text-align: center; color: var(--gray); padding: 20px;">
+                        Create your first playlist to track your learning progress
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Goals Content -->
+        <div class="nav-content" id="goals-content">
+            <!-- Goals content remains exactly the same -->
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-bullseye"></i> Today's Goals</h2>
+                <p>Set and track your daily learning objectives</p>
+                
+                <div class="goal-form">
+                    <div class="form-group">
+                        <label for="goalTitle">Goal Title</label>
+                        <input type="text" id="goalTitle" placeholder="e.g., Complete React Hooks tutorial">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goalCategory">Category</label>
+                        <select id="goalCategory">
+                            <option value="coding">Coding</option>
+                            <option value="design">Design</option>
+                            <option value="language">Language</option>
+                            <option value="business">Business</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-primary" id="addGoal">
+                        <i class="fas fa-plus"></i> Add Goal
+                    </button>
+                </div>
+                
+                <div class="today-goals" id="goalsList"></div>
+                
+                <div class="goal-progress-bar">
+                    <div class="goal-progress" id="goalsProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-chart-bar"></i> Progress Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-header">
+                        <h3>Daily Goal Completion</h3>
+                        <select id="timelineRange">
+                            <option value="7">Last 7 Days</option>
+                            <option value="14">Last 14 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <div class="timeline-chart" id="timelineChart"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievements Content -->
+        <div class="nav-content" id="achievements-content">
+            <!-- Achievements content remains exactly the same -->
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-trophy"></i> Achievements</h2>
+                <p>Earn badges by reaching learning milestones</p>
+                
+                <div class="achievements-grid" id="achievementsGrid"></div>
+            </div>
+        </div>
+        
+        <!-- Focus Mode Content -->
+        <div class="nav-content" id="focus-content">
+            <!-- Focus Mode content remains exactly the same -->
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-clock"></i> Focus Mode</h2>
+                <p>Use the Pomodoro technique to maintain focus during study sessions</p>
+                
+                <div class="timer-container">
+                    <div class="timer-display" id="pomodoroTimer">25:00</div>
+                    <div class="current-task" id="currentTask">No active task</div>
+                    <div class="timer-controls">
+                        <button class="btn-primary" id="startTimer">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                        <button class="btn-warning" id="pauseTimer">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button class="btn-success" id="resetTimer">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="focus-settings">
+                    <div class="form-group">
+                        <label for="sessionTask">Current Task</label>
+                        <input type="text" id="sessionTask" placeholder="What are you working on?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sessionDuration">Session Duration (minutes)</label>
+                        <select id="sessionDuration">
+                            <option value="25">25 minutes (Pomodoro)</option>
+                            <option value="50">50 minutes (Extended)</option>
+                            <option value="15">15 minutes (Short)</option>
+                            <option value="90">90 minutes (Deep Work)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="focus-history">
+                    <h3 class="card-title"><i class="fas fa-history"></i> Focus History</h3>
+                    <div id="focusHistoryList">
+                        <p style="text-align: center; color: var(--gray); padding: 20px;">
+                            Your focus sessions will appear here
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Content -->
+        <div class="nav-content" id="settings-content">
+            <!-- Settings content remains exactly the same -->
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-cog"></i> Settings</h2>
+                
+                <div class="settings-section">
+                    <h3 style="margin-bottom: 15px;">Data Management</h3>
+                    
+                    <div class="data-stats">
+                        <div class="data-stat">
+                            <div class="data-value" id="dataSize">0 KB</div>
+                            <div class="data-label">Data Size</div>
+                        </div>
+                        <div class="data-stat">
+                            <div class="data-value" id="lastExport">Never</div>
+                            <div class="data-label">Last Export</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <p style="color: var(--gray); margin-bottom: 15px; font-size: 0.9rem;">
+                            <i class="fas fa-info-circle"></i> Regular backups ensure you don't lose your progress
+                        </p>
+                        
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button class="btn-primary" id="exportData">
+                                <i class="fas fa-download"></i> Export Data
+                            </button>
+                            <button class="btn-success" id="importData">
+                                <i class="fas fa-upload"></i> Import Data
+                            </button>
+                            <button class="btn-warning" id="clearData">
+                                <i class="fas fa-trash"></i> Clear All Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Add Button -->
+    <div class="floating-add-btn" id="floatingAddBtn">
+        <i class="fas fa-plus"></i>
+    </div>
+    
+    <!-- Add Playlist Form Modal -->
+    <div class="add-form-container" id="addFormContainer">
+        <div class="add-form-content">
+            <button class="close-add-form" id="closeAddForm">&times;</button>
+            <h2 class="card-title"><i class="fas fa-plus-circle"></i> Add New Playlist</h2>
+            <form id="playlistForm">
+                <div class="form-group">
+                    <label for="playlistName">Playlist Name</label>
+                    <input type="text" id="playlistName" placeholder="e.g., JavaScript Fundamentals" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="playlistSource">Source</label>
+                    <select id="playlistSource">
+                        <option value="youtube">YouTube</option>
+                        <option value="udemy">Udemy</option>
+                        <option value="coursera">Coursera</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="playlistUrl">Playlist URL (Optional)</label>
+                    <input type="url" id="playlistUrl" placeholder="https://www.youtube.com/playlist?list=...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="videosData">Video List (One per line)</label>
+                    <textarea id="videosData" rows="6" placeholder="Enter video titles, one per line&#10;e.g.,&#10;Introduction to JavaScript&#10;Variables and Data Types&#10;Functions and Scope&#10;..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Save Playlist</button>
+                    <button type="button" class="btn-warning" id="cancelAddForm">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
